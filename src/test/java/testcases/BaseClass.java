@@ -21,7 +21,7 @@ public class BaseClass {
 	public XSSFWorkbook wbook;
 	public XSSFSheet sheet;
 	
-	@BeforeMethod
+	@BeforeMethod(alwaysRun=true)
 	public void SetUpDriver() {
 		
 		driver = new ChromeDriver();
@@ -31,20 +31,20 @@ public class BaseClass {
 	}
 	
 	
-	@AfterMethod
+	@AfterMethod(alwaysRun=true)
 	public void TearDown() {
 		
 		driver.quit();
 	}
 	
-	@BeforeTest
+	@BeforeTest(alwaysRun=true)
 	public void SetUpExcel() throws IOException {
 		
 	
 		
 	}
 	
-	@AfterTest
+	@AfterTest(alwaysRun=true)
 	public void CloseExcel() throws IOException {
 		
 		wbook.close();

@@ -22,7 +22,7 @@ import pages.LoginPage;
 
 public class LoginTest extends BaseClass{
 	
-	@Test
+	@Test(groups=("sanity"), description= "Login success test")
 	public void TC01_LoginFailureTest() {
 		
 		LoginPage lp = new LoginPage();
@@ -31,7 +31,7 @@ public class LoginTest extends BaseClass{
 		
 	}
 	
-	@Test
+	@Test(groups=("sanity"), description= "Login success test")
 	public void TC02_LoginSuccessTest() {
 		
 		LoginPage lp = new LoginPage();
