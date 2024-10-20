@@ -25,7 +25,7 @@ public class LoginTest extends BaseClass{
 	@Test(groups=("sanity"), description= "Login success test")
 	public void TC01_LoginFailureTest() {
 		
-		LoginPage lp = new LoginPage();
+		LoginPage lp = new LoginPage(GetDriver());
 		lp.LoginFunction("abc@xyz.com", "Abcd@1234");
 		lp.ValidateErrorMsg("The email or password you have entered is invalid.");
 		
@@ -34,7 +34,8 @@ public class LoginTest extends BaseClass{
 	@Test(groups=("sanity"), description= "Login success test")
 	public void TC02_LoginSuccessTest() {
 		
-		LoginPage lp = new LoginPage();
+		LoginPage lp = new LoginPage(GetDriver());
+
 		lp.LoginFunction("pqr@xyz.com", "Correct@1234");
 		
 	}
@@ -43,7 +44,8 @@ public class LoginTest extends BaseClass{
 	@Parameters({"param1","param2"})
 	public void TC03_LoginSuccessTest(String Uname, String Pwd) {
 		
-		LoginPage lp = new LoginPage();
+		LoginPage lp = new LoginPage(GetDriver());
+
 		lp.LoginFunction(Uname, Pwd);
 		
 	}
@@ -54,7 +56,8 @@ Map<String, String> testdata = new HashMap<String, String>();
 	@Test(dataProvider="dp")
 	public void TC04_LoginSuccessTest(String key) {
 		
-		LoginPage lp = new LoginPage();
+		LoginPage lp = new LoginPage(GetDriver());
+
 		lp.LoginFunction(key, testdata.get(key));
 		
 	}
@@ -74,7 +77,8 @@ Map<String, String> testdata = new HashMap<String, String>();
 
 public void TC05_LoginFailureTest() {
 		
-		LoginPage lp = new LoginPage();
+	LoginPage lp = new LoginPage(GetDriver());
+
 		
 		String UserNameVal = sheet.getRow(1).getCell(0).getStringCellValue();
 		String PasswordVal = sheet.getRow(1).getCell(1).getStringCellValue();
